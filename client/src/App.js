@@ -1,6 +1,6 @@
 import "./App.css";
 import io from "socket.io-client";
-import {useState} from "react";
+import { useState } from "react";
 import Chat from "./Chat.js";
 
 // connect back end to front end
@@ -39,10 +39,10 @@ function App() {
 					}}
 				/>			
 				<button onClick={joinRoom}>Join Room</button>
-			</div> 
-			) : (
-				<Chat socket={socket} username={username} room={room}/>
-			)}
+			</div>
+		) : (
+			<Chat socket={socket} username={username} room={room} />
+		)}
 		</div>
 	);
 }
