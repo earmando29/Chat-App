@@ -9,7 +9,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: { 
-        origin: "http://localhost:3000",
+        origin: "https://nameless-peak-82485.herokuapp.com/",
         methods: ["GET", "POST"],
     },
 });
@@ -35,6 +35,6 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(3001, () => {
+server.listen(process.env.PORT || 3001, () => {
     console.log("SERVER RUNNING");
 });
