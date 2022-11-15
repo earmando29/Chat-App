@@ -4,7 +4,7 @@ import {useState} from "react";
 import Chat from "./Chat.js";
 
 // connect back end to front end
-const socket = io.connect("https://nameless-peak-82485.herokuapp.com/");
+const socket = io.connect("http://localhost:3001");
 
 function App() {
 	const [username, setUsername] = useState("");
