@@ -62,10 +62,10 @@ function Chat({ socket, username, room }) {
             placeholder="Hey..."
             onChange={(event) => {
                 setCurrentMessage(event.target.value);
-            }}
-            onKeyPress={(event) => {
+              }}
+              onKeyPress={(event) => {
                 event.key === "Enter" && sendMessage();
-            }}
+              }}
             />
             <button onClick={sendMessage}>&#9658;</button>
         </div>
