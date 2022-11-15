@@ -1,6 +1,7 @@
 import './App.css';
 import io from 'socket.io-client'
 import {useState} from 'react';
+import Chat from './Chat.js';
 
 // connect back end to front end
 const socket = io.connect("http://localhost:3001");
@@ -35,9 +36,8 @@ function App() {
 			/>			
 			<button onClick={joinRoom}>Join Room</button>
 
-			{/* <Chat socket={socket} username={username} room={room}/> */}
+			<Chat socket={socket} username={username} room={room}/>
 		</div>
-
 	);
 }
 
