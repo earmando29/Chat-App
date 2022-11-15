@@ -1,7 +1,7 @@
-import './App.css';
-import io from 'socket.io-client'
-import {useState} from 'react';
-import Chat from './Chat.js';
+import "./App.css";
+import io from "socket.io-client";
+import {useState} from "react";
+import Chat from "./Chat.js";
 
 // connect back end to front end
 const socket = io.connect("http://localhost:3001");
@@ -12,7 +12,7 @@ function App() {
 	const [showChat, setShowChat] = useState(false);
 
 	const joinRoom = () => {
-		// Admit event from socket.io
+		// Admit event from socket.io only when they are not empty
 		if (username !== "" && room !== "") {
 			socket.emit("join_room", room);
 			setShowChat(true);
@@ -40,7 +40,7 @@ function App() {
 				/>			
 				<button onClick={joinRoom}>Join Room</button>
 			</div> 
-			):(
+			) : (
 				<Chat socket={socket} username={username} room={room}/>
 			)}
 		</div>

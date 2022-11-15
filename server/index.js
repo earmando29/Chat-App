@@ -1,7 +1,7 @@
-const express = require('express');
-const app = express()
-const http = require('http');
-const cors = require('cors');   // 4.4k (gzipped: 1.9k)
+const express = require("express");
+const app = express();
+const http = require("http");
+const cors = require("cors");// 4.4k (gzipped: 1.9k)
 const{ Server } = require("socket.io");
 app.use(cors());
 
@@ -28,13 +28,12 @@ io.on("connection", (socket) => {
     // Send data to front end with data.room restricts chas to room
     socket.on("send_message", (data) => {
         socket.to(data.room).emit("receive_message", data);
-        // console.log(data);
     });
 
     socket.on("disconnect", () => {
         console.log("User Disconnected: ", socket.id);
-    })
-})
+    });
+});
 
 server.listen(3001, () => {
     console.log("SERVER RUNNING");
