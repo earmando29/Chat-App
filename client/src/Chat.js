@@ -31,6 +31,8 @@ function Chat({ socket, username, room }) {
             console.log(data);
             setMessageList((list) => [...list, data]);
         });
+        //removes listener so that it does not send it twice
+        return () => socket.removeListener('receive_message');
       }, [socket]);
 
     return (
